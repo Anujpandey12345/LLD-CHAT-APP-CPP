@@ -89,9 +89,7 @@ Session::Session(tcp::socket s,
     : clientSocket(std::move(s)), room(r) {};
 
 void Session::write(
-    Message &message) { // room will call write() function to write any message
-                        // to the client's queue It will trigger the write() for
-                        // each participant except the sender itself
+    Message &message) { 
   messageQueue.push_back(message);
   while (messageQueue.size() != 0) {
     Message message = messageQueue.front();
@@ -107,9 +105,7 @@ void Session::write(
 }
 
 void Session::deliver(
-    Message &message) { // when client wants to send message it can call
-                        // session's deliver() message session will call
-                        // deliver() to deliver the message to the room
+    Message &message) { 
   room.deliver(shared_from_this(), message);
 }
 // data stores the header+bodyLength with maximum size of header+maxBytes
