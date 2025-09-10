@@ -79,3 +79,13 @@ private:
 // the data and send data server gets the message, decodes the header, get the
 // bodylength from the header and hence complete body then server sends the
 // message to all the clients connected to that room.
+
+
+
+
+
+
+
+
+
+// I'm working not Logging system also 
